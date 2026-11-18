@@ -22,9 +22,13 @@ st.markdown(
     <style>
       header[data-testid="stHeader"], footer, #MainMenu, [data-testid="stToolbar"],
       [data-testid="stSidebar"], [data-testid="collapsedControl"] { display: none !important; }
-      .block-container { padding: 0 !important; max-width: 100% !important; }
-      [data-testid="stAppViewContainer"] > .main { padding: 0 !important; }
-      iframe[title="streamlit.components.v1.html"] { height: 100vh !important; width: 100% !important; border: 0; display: block; }
+      html, body, [data-testid="stApp"], [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+        height: 100dvh !important; overflow: hidden !important; padding: 0 !important; margin: 0 !important; }
+      [data-testid="stMainBlockContainer"], .block-container {
+        padding: 0 !important; max-width: 100% !important; }
+      [data-testid="stVerticalBlock"], [data-testid="stElementContainer"] { gap: 0 !important; }
+      /* Match the embedded app by tag, because Streamlit changes the iframe title between versions. */
+      [data-testid="stMain"] iframe { height: 100dvh !important; width: 100% !important; border: 0; display: block; }
     </style>
     """,
     unsafe_allow_html=True,
